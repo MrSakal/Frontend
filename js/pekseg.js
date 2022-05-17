@@ -4,11 +4,11 @@ app.run(function($rootScope, $locale) {
     $locale.NUMBER_FORMATS.GROUP_SEP = ".";
     $locale.NUMBER_FORMATS.DECIMAL_SEP = ",";
 
-    $rootScope.title = .................................................;
-    $rootScope.subtitle = .................................................;
-    $rootScope.company = .................................................;
-    $rootScope.author = .................................................;
-    $rootScope.penznem = .................................................;
+    $rootScope.title = "Házi Pékség";
+    $rootScope.subtitle = "Szoftverfejlesztő és tesztelő Vizsgafeladat";    
+    $rootScope.company = "Bajai SZC Türr István Technikum";
+    $rootScope.author = "Boros Barnabás";
+    $rootScope.penznem = "Ft";
 
     $rootScope.rendelesek = [];
     if (sessionStorage.getItem('peksegUser')) {
@@ -22,12 +22,32 @@ app.run(function($rootScope, $locale) {
 
 app.config(function($routeProvider) {
     $routeProvider
-        ....................................
-        ....................................
-        ....................................
-        ....................................
-        ....................................
-        ....................................
-        ....................................
-        ....................................
+    .when("/", {
+        templateUrl : "views/termeklista.html",
+        controller : "productCtrl"
+      })
+      .when("/reg", {
+        templateUrl : "views/regisztracio.html",
+        controller : "loginCtrl"
+      })
+      .when("/kosar", {
+        templateUrl : "views/kosar.html",
+        controller : "cartCtrl"
+      })
+      .when("/termekek", {
+        templateUrl : "views/termekek.html",
+        controller : "productCtrl"
+      })
+      .when("/felhasznalok", {
+        templateUrl : "views/felhasznalok.html",
+        controller : "userCtrl"
+      })
+      .when("/rendelesek", {
+        templateUrl : "views/rendelesek.html",
+        controller : "orderCtrl"
+      })
+      .when("/stat", {
+        templateUrl : "views/statisztika.html",
+        controller : "statCtrl"
+      });
 });
